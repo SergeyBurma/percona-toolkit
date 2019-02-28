@@ -11365,7 +11365,8 @@ sub osc_retry {
          # The query failed/caused an error.  If the error is one of these,
          # then we can possibly retry.
          if (   $error =~ m/Lock wait timeout exceeded/
-             || $error =~ m/Deadlock found/
+             || $error =~ m/Deadlock found/             
+             || $error =~ m/Resource deadlock avoided/
              || $error =~ m/Query execution was interrupted/
              || $error =~ m/WSREP detected deadlock\/conflict/
          ) {
